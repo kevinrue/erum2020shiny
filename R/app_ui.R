@@ -15,14 +15,18 @@ app_ui <- function(request) {
       dashboardHeader(title = "erum2020shiny"),
       dashboardSidebar(
         sidebarMenu(
-          menuItem(text = "LoadData", tabName = "loaddata", icon = icon("home"))
+          menuItem(text = "LoadData", tabName = "loaddata", icon = icon("home")),
+          menuItem(text = "Analysis", tabName = "analysis", icon = icon("fa-line-chart", lib = "font-awesome"))
         )
       ),
       dashboardBody(
         tabItems(
           # First tab content
           tabItem(tabName = "loaddata",
-                  mod_load_data_ui("load_data_1"))
+                  mod_load_data_ui("load_data_1")),
+          # Secon tab content
+          tabItem(tabName = "analysis",
+                  mod_analysis_ui("analysis_ui_1"))
         )
       )
     )
