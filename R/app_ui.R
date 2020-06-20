@@ -3,14 +3,28 @@
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import shinydashboard
 #' @noRd
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
-    fluidPage(
-      h1("erum2020shiny")
+    dashboardPage(
+      title = "erum2020shiny",
+      dashboardHeader(title = "erum2020shiny"),
+      dashboardSidebar(
+        sidebarMenu(
+          menuItem(text = "LoadData", tabName = "loaddata", icon = icon("home"))
+        )
+      ),
+      dashboardBody(
+        tabItems(
+          # First tab content
+          tabItem(tabName = "loaddata",
+                  mod_load_data_ui("load_data_1"))
+        )
+      )
     )
   )
 }
