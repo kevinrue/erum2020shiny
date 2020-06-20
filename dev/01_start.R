@@ -49,6 +49,11 @@ golem::use_recommended_deps()
 golem::remove_favicon()
 golem::use_favicon() # path = "path/to/ico". Can be an online file. 
 
+# renv
+renv::init()
+renv::settings$snapshot.type("explicit")
+renv::snapshot()
+
 ## Add helper functions ----
 golem::use_utils_ui()
 golem::use_utils_server()
